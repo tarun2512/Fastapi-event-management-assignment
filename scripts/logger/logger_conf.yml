@@ -1,0 +1,15 @@
+logger:
+  name: workflow-management-v2
+  level: INFO
+  handlers:
+    - type: RotatingFileHandler
+      file_path: data/workflow-management/logs/
+      max_bytes: 100000000
+      back_up_count: 5
+
+    - type: SocketHandler
+      host: localhost
+      port: 23582
+
+    - type: StreamHandler
+      name: ebpr-engine
